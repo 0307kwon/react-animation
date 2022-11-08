@@ -1,1 +1,1 @@
-console.log("my packages");
+export * from "./components/CircularSelector/CircularSelector";
