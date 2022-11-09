@@ -8,7 +8,10 @@ export interface Props {
 const CircularSelector = ({ children }: Props) => {
   return (
     <div className={classes.root}>
-      <div>테스트</div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
     </div>
   );
 };
