@@ -8,9 +8,18 @@ export default {
 
 export const Primary: ComponentStory<typeof CircularSelector> = () => (
   <CircularSelector>
-    <div>1</div>
-    <div>2</div>
-    <div>3</div>
-    <div>4</div>
+    {[1, 2, 3, 4, 5, 6, 7, 8].map(() => (
+      <div
+        style={{
+          width: "30px",
+          height: "30px",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        1
+      </div>
+    ))}
   </CircularSelector>
 );

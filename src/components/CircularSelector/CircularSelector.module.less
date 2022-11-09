@@ -1,16 +1,33 @@
 .root {
-  div {
-    width: 300px;
-    height: 300px;
-    @deg: 60deg;
-    background: conic-gradient(red @deg, transparent @deg calc(360deg - @deg));
+  position: relative;
+  @size: 300px;
+  padding: @size @size 0 0;
+
+  & > div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: @size;
+    height: @size;
     border-radius: 50%;
 
+    @maskSize: 40%;
     -webkit-mask-image: radial-gradient(
       circle,
-      rgba(0, 0, 0, 0) 50%,
-      black 50%
+      rgba(0, 0, 0, 0) @maskSize,
+      black @maskSize
     );
-    mask-image: radial-gradient(circle, rgba(0, 0, 0, 0.5) 50%, black 50%);
+    mask-image: radial-gradient(
+      circle,
+      rgba(0, 0, 0, 0.5) @maskSize,
+      black @maskSize
+    );
+
+    & > div {
+      position: absolute;
+      top: calc(1 / 4 * @maskSize);
+      left: 50%;
+      transform: translate3d(-50%, -50%, 0);
+    }
   }
 }
