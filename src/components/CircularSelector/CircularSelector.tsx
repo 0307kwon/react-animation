@@ -9,7 +9,7 @@ type Props = {
   style?: {
     color: string;
   };
-}
+};
 
 const cloneElement = (element: ReactElement): ReactElement => {
   return {
