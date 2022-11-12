@@ -11,7 +11,13 @@ module.exports = {
     libraryTarget: "umd",
     umdNamedDefine: true,
   },
-  externals: ["react"],
+  resolve: {
+    alias: {
+      react: path.resolve(__dirname, "./node_modules/react"),
+      "react-dom": path.resolve(__dirname, "./node_modules/react-dom"),
+    },
+  },
+  externals: ["react", "react-dom"],
   devtool: "source-map",
   module: {
     rules: [
