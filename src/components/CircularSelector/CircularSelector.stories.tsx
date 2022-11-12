@@ -7,7 +7,11 @@ export default {
 } as ComponentMeta<typeof CircularSelector>;
 
 export const Primary: ComponentStory<typeof CircularSelector> = () => (
-  <CircularSelector>
+  <CircularSelector
+    onSelect={(idx) => {
+      console.log(idx, "선택됨");
+    }}
+  >
     {[1, 2, 3, 4, 5, 6, 7, 8].map(() => (
       <div
         style={{
