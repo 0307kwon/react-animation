@@ -60,7 +60,6 @@ export const CircularSelector = ({ children, onSelect, style }: Props) => {
 
     // 마우스가 x 중점에서 오른쪽에 있으면 + 90
     // 왼쪽에 있으면 + 270
-    // console.log(degree);
 
     const elementAreas = children.map((_, idx) => {
       const middleDegree = idx * deg;
@@ -86,7 +85,6 @@ export const CircularSelector = ({ children, onSelect, style }: Props) => {
     // TODO: 쓰로틀 적용하기
     throttle(() => {
       setHoveredItemIdx(hoveredElementIdx ?? null);
-      console.log(hoveredElementIdx);
     });
   }, []);
 
