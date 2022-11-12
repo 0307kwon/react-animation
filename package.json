@@ -1,6 +1,6 @@
 {
   "name": "@0307kwon/react-animation",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "reusable react animation components",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
