@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import CircularSelector from "./CircularSelector";
+import { CircularSelector } from "./CircularSelector";
 
 export default {
   title: "CircularSelector",

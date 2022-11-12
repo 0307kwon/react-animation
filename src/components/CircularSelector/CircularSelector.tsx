@@ -3,7 +3,7 @@ import { ReactElement, ReactNode, useCallback, useState } from "react";
 import { makeThrottle } from "../../utils";
 import classes from "./CircularSelector.module.less";
 
-export interface Props {
+type Props = {
   children: ReactNode[];
   onSelect: (selectedItemIdx: number) => void;
   style?: {
@@ -21,7 +21,7 @@ const defaultColor = "#BDBDBD";
 
 const throttle = makeThrottle(40);
 
-const CircularSelector = ({ children, onSelect, style }: Props) => {
+export const CircularSelector = ({ children, onSelect, style }: Props) => {
   const deg = 360 / children.length;
   const offset = 2;
   const [hoveredItemIdx, setHoveredItemIdx] = useState<null | number>(null);
@@ -140,5 +140,3 @@ const CircularSelector = ({ children, onSelect, style }: Props) => {
     </div>
   );
 };
-
-export default CircularSelector;
