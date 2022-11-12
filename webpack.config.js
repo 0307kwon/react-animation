@@ -11,6 +11,7 @@ module.exports = {
     libraryTarget: "umd",
     umdNamedDefine: true,
   },
+  externals: ["react"],
   devtool: "source-map",
   module: {
     rules: [
