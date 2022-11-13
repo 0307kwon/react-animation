@@ -1,19 +1,16 @@
 import classNames from "classnames";
-import { ReactNode, useCallback, useState } from "react";
+import { HTMLAttributes, ReactNode, useCallback, useState } from "react";
 import Xmark from "../../assets/xmark.svg";
 import { CircularButton } from "../@common/CircularButton/CircularButton";
 import classes from "./PIPModal.module.less";
 
-type Props = {
+type Props = HTMLAttributes<HTMLDivElement> & {
   pipRender: () => ReactNode;
   modalRender: {
     title: string;
     body: () => ReactNode;
   };
   isModalOpen?: boolean;
-  style?: {
-    backgroundColor: string;
-  };
 };
 
 const waitTimeForAnimationToModal = 800;
@@ -23,6 +20,8 @@ export const PIPModal = ({
   modalRender,
   isModalOpen,
   style,
+  className,
+  ...options
 }: Props) => {
   const [pipStatus, setPipStatus] = useState<
     "pip" | "animationToModal" | "modal" | "animationToPip"
@@ -43,7 +42,7 @@ export const PIPModal = ({
   }, []);
 
   return (
-    <div className={classes.root}>
+    <div className={classNames(classes.root, className)} {...options}>
       {(pipStatus === "modal" || pipStatus === "animationToPip") && (
         <div
           className={classNames({
