@@ -1,5 +1,5 @@
-@modalMarginY: 32px;
-@modalMarginX: 16px;
+@modalMarginY: 100px;
+@modalMarginX: 50px;
 @pipSize: 200px;
 
 @keyframes openModalAnimation {
@@ -7,8 +7,8 @@
   }
 
   40% {
-    width: calc(30% - @modalMarginX * 2);
-    height: calc(30% - @modalMarginY * 2);
+    width: calc(@pipSize - @modalMarginX * 2);
+    height: calc(@pipSize - @modalMarginY * 2);
   }
 
   60% {
