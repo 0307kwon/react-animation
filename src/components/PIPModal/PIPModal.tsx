@@ -11,11 +11,19 @@ type Props = {
     body: () => ReactNode;
   };
   isModalOpen?: boolean;
+  style?: {
+    backgroundColor: string;
+  };
 };
 
 const waitTimeForAnimationToModal = 800;
 
-export const PIPModal = ({ pipRender, modalRender, isModalOpen }: Props) => {
+export const PIPModal = ({
+  pipRender,
+  modalRender,
+  isModalOpen,
+  style,
+}: Props) => {
   const [pipStatus, setPipStatus] = useState<
     "pip" | "animationToModal" | "modal" | "animationToPip"
   >(isModalOpen ? "modal" : "pip");
@@ -42,6 +50,7 @@ export const PIPModal = ({ pipRender, modalRender, isModalOpen }: Props) => {
             [classes.modal]: true,
             [classes.animationToPip]: pipStatus === "animationToPip",
           })}
+          style={style}
         >
           {pipStatus === "modal" && (
             <>
@@ -67,6 +76,7 @@ export const PIPModal = ({ pipRender, modalRender, isModalOpen }: Props) => {
             [classes.animationToModal]: pipStatus === "animationToModal",
           })}
           onClick={onClickOpenModal}
+          style={style}
         >
           {pipStatus === "pip" && pipRender()}
         </div>

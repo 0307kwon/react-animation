@@ -28,6 +28,9 @@ export const PipMode: ComponentStory<typeof PIPModal> = () => (
         title: "내 플레이리스트 찾기",
         body: () => <div>모달</div>,
       }}
+      style={{
+        backgroundColor: "rgba(255,255,255,0.8)",
+      }}
     />
   </div>
 );
