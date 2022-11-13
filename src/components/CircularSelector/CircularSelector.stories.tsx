@@ -12,7 +12,7 @@ export const Primary: ComponentStory<typeof CircularSelector> = () => (
       console.log(idx, "선택됨");
     }}
   >
-    {[1, 2, 3, 4, 5, 6, 7, 8].map(() => (
+    {[1, 2, 3, 4, 5, 6, 7, 8].map((_, idx) => (
       <div
         style={{
           width: "30px",
@@ -21,6 +21,7 @@ export const Primary: ComponentStory<typeof CircularSelector> = () => (
           justifyContent: "center",
           alignItems: "center",
         }}
+        key={idx}
       >
         1
       </div>

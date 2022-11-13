@@ -1,0 +1,27 @@
+.button {
+  position: relative;
+  appearance: none;
+  border: none;
+  background: none;
+
+  background-color: #dfe6e9;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  transition: all 0.1s ease-in;
+
+  &:hover {
+    background-color: #b2bec3;
+  }
+
+  &:active {
+    background-color: #dfe6e9;
+  }
+
+  & > * {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+  }
+}

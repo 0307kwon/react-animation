@@ -3,3 +3,11 @@ declare module "*.module.less" {
 
   export default content;
 }
+
+declare module "*.svg" {
+  import React = require("react");
+
+  const ReactComponent: React.FC<React.SVGProps<SVGElement>>;
+
+  export default ReactComponent;
+}

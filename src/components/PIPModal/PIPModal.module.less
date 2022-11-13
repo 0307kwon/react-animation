@@ -1,0 +1,151 @@
+@modalMarginY: 32px;
+@modalMarginX: 16px;
+@pipSize: 200px;
+
+@keyframes openModalAnimation {
+  0% {
+  }
+
+  40% {
+    width: calc(30% - @modalMarginX * 2);
+    height: calc(30% - @modalMarginY * 2);
+  }
+
+  60% {
+    // background-color: red;
+    width: calc(110% - @modalMarginX * 2);
+    height: calc(110% - @modalMarginY * 2);
+  }
+
+  70% {
+    width: calc(95% - @modalMarginX * 2);
+    height: calc(95% - @modalMarginY * 2);
+  }
+
+  80% {
+    width: calc(100% - @modalMarginX * 2);
+    height: calc(100% - @modalMarginY * 2);
+    bottom: calc(50% - (100% - @modalMarginY * 2) / 2);
+    left: calc(50% - (100% - @modalMarginX * 2) / 2);
+  }
+
+  90% {
+    width: calc(99% - @modalMarginX * 2);
+    height: calc(99% - @modalMarginY * 2);
+    bottom: calc(50% - (100% - @modalMarginY * 2) / 2);
+    left: calc(50% - (100% - @modalMarginX * 2) / 2);
+  }
+
+  100% {
+    width: calc(100% - @modalMarginX * 2);
+    height: calc(100% - @modalMarginY * 2);
+    bottom: calc(50% - (100% - @modalMarginY * 2) / 2);
+    left: calc(50% - (100% - @modalMarginX * 2) / 2);
+  }
+}
+
+@keyframes closeModalAnimation {
+  0% {
+    width: calc(100% - @modalMarginX * 2);
+    height: calc(100% - @modalMarginY * 2);
+  }
+
+  40% {
+    width: calc(110% - @modalMarginX * 2);
+    height: calc(110% - @modalMarginY * 2);
+  }
+
+  60% {
+    width: calc(@pipSize * 0.75);
+    height: calc(@pipSize * 0.75);
+  }
+
+  70% {
+    width: calc(@pipSize * 1.1);
+    height: calc(@pipSize * 1.1);
+  }
+
+  80% {
+    width: calc(@pipSize * 0.95);
+    height: calc(@pipSize * 0.95);
+    left: 10px;
+    bottom: 10px;
+  }
+
+  90% {
+    width: calc(@pipSize * 1.01);
+    height: calc(@pipSize * 1.01);
+    left: 10px;
+    bottom: 10px;
+  }
+
+  100% {
+    width: calc(@pipSize * 1);
+    height: calc(@pipSize * 1);
+    left: 10px;
+    bottom: 10px;
+  }
+}
+
+.root {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.modal {
+  position: absolute;
+  background-color: white;
+  border-radius: 14px;
+  box-sizing: border-box;
+  padding: 14px 22px;
+  width: calc(100% - @modalMarginX * 2);
+  height: calc(100% - @modalMarginY * 2);
+  bottom: calc(50% - (100% - @modalMarginY * 2) / 2);
+  left: calc(50% - (100% - @modalMarginX * 2) / 2);
+  transform-origin: bottom left;
+
+  .modalController {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 8px 0 16px;
+  }
+
+  &.animationToPip {
+    animation: closeModalAnimation 0.8s ease-in-out forwards;
+  }
+}
+
+.pip {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  width: @pipSize;
+  height: @pipSize;
+  background-color: white;
+  box-sizing: border-box;
+  border-radius: 14px;
+  padding: 14px;
+  transition: all 0.15s ease-in-out;
+  transform-origin: bottom left;
+
+  &:not(.animationToModal):hover {
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
+      rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
+      rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    transform: scale(1.05);
+  }
+
+  &:not(.animationToModal):active {
+    transform: scale(1.08);
+  }
+
+  &.animationToModal {
+    animation: openModalAnimation 0.8s ease-in-out forwards;
+  }
+}
